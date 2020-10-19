@@ -42,5 +42,15 @@ function updateDOM(providedData = data){
 function formatMoney(number){
   return  '$ ' + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'); // from Stack overflow : format numbers as currency
 }
+//Double Money
+function doubleMoney(){
+  data = data.map(user => {
+    return {...user, money: user.money * 2};
+  });
+  updateDOM();
+}
+
 // Event Listeners
-addUserBtn.addEventListener('click', getRandomUser)
+addUserBtn.addEventListener('click', getRandomUser);
+doubleBtn.addEventListener('click', doubleMoney);
+
